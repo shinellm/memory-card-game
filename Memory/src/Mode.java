@@ -24,9 +24,6 @@ public class Mode extends JApplet{
 		cp = c;
 		cmd = new Command();
 		
-		toSelectOrNot = false;
-		
-		
 		CanvasPanel canvasPanel = new CanvasPanel();
 		canvasPanel.setBackground(Color.cyan);
 		cp.add(canvasPanel, BorderLayout.CENTER);
@@ -80,11 +77,7 @@ public class Mode extends JApplet{
 	     * current command.
 	     */
 	    public void mouseClicked(MouseEvent event) {
-		if (toSelectOrNot) {
-	    		Point p = event.getPoint();
-	    		selectCmd.addToSet(dwg, p);
-	    		repaint();
-		}
+		
 	    }
 
 	    // We don't care about the other mouse events.
