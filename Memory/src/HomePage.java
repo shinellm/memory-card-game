@@ -29,22 +29,20 @@ public class HomePage extends JApplet {
 		dwg = new Drawing();
 		
 		//Make JButton objects for the two modes of play
-		JButton tutorialButton = new JButton("Tutorial");
-		JButton solitaireButton = new JButton("Solitaire");
+		JButton enterButton = new JButton("Enter");
+		
 		
 		//Add listeners to the two Modes subclass buttons
-		tutorialButton.addActionListener(new TutorialButtonListener());
-		solitaireButton.addActionListener(new SolitaireButtonListener());
+		enterButton.addActionListener(new EnterButtonListener());
+		
 		
 		//The two buttons will be adjacent to one another, in one row of two
 		modePanel = new JPanel(); //Holds the buttons horizontally
-		setLabel = new JLabel("Choose Mode:");
+		setLabel = new JLabel("Enter Name: ");
 		modePanel.setLayout(new FlowLayout());
 		modePanel.add(setLabel);
-		tutorialButton.setBackground(Color.green);
-		solitaireButton.setBackground(Color.green);
-		modePanel.add(tutorialButton);
-		modePanel.add(solitaireButton);
+		enterButton.setBackground(Color.green);
+		modePanel.add(enterButton);
 		
 		//Container objects enable control of the location of panels
 		//contained within it.
@@ -63,21 +61,7 @@ public class HomePage extends JApplet {
 		
 	}
 	
-	private class TutorialButtonListener implements ActionListener {
-		public void actionPerformed(ActionEvent event) {
-			JButton button = (JButton)event.getSource();
-			JPanel panel = (JPanel)button.getParent();
-			panel.remove(0);
-			panel.remove(0);
-			panel.repaint();
-			panel.validate();
-			Container cp = (Container)panel.getParent();
-			cp.remove(0);
-			mode = new Tutorial(dwg, cp);
-		}
-	}
-	
-	private class SolitaireButtonListener implements ActionListener {
+	private class EnterButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			JButton button = (JButton)event.getSource();
 			JPanel panel = (JPanel)button.getParent();
@@ -90,4 +74,5 @@ public class HomePage extends JApplet {
 			mode = new Solitaire(dwg, cp);
 		}
 	}
+	
 }
