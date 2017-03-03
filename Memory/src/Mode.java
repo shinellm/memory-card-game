@@ -7,11 +7,8 @@ public class Mode extends JApplet{
 	private Drawing dwg;
 	private Container cp;
 	private Command cmd;
-	private SelectThreeCardsCmd selectCmd;
 	private Deck deck;
-	private boolean toSelectOrNot;
-	private String modeName;
-	protected JPanel optionPanel;
+	
 	
 	public static final int canvasX = 50;		//The x-coordinate for the canvas panel, on which the cards are draw
 	public static final int canvasY = 50;		//The y-coordinate for the canvas panel, on which the cards are draw
@@ -26,29 +23,12 @@ public class Mode extends JApplet{
 		dwg = d;
 		cp = c;
 		cmd = new Command();
-		selectCmd = new SelectThreeCardsCmd();
+		
 		toSelectOrNot = false;
-		optionPanel = new JPanel();
+		
 		
 		CanvasPanel canvasPanel = new CanvasPanel();
 		canvasPanel.setBackground(Color.cyan);
-		
-		
-		JButton restartButton = new JButton("Restart");
-		JButton switchButton = new JButton("Switch Mode");
-		
-		restartButton.addActionListener(new RestartButtonListener());
-		switchButton.addActionListener(new SwitchButtonListener());
-		
-		JPanel GeneralOptionPanel = new JPanel();
-		GeneralOptionPanel.setLayout(new FlowLayout());
-		restartButton.setBackground(Color.CYAN);
-		switchButton.setBackground(Color.CYAN);
-		GeneralOptionPanel.add(restartButton);
-		GeneralOptionPanel.add(switchButton);
-		GeneralOptionPanel.setBackground(Color.white);
-		
-		cp.add(GeneralOptionPanel, BorderLayout.NORTH);
 		cp.add(canvasPanel, BorderLayout.CENTER);
 		cp.repaint();
 		cp.validate();
@@ -58,52 +38,16 @@ public class Mode extends JApplet{
 		//Initialize deck 
 		deck.shuffle();
 		
-		//Add 12 cards
-		for (int i = 0; i < 12; i++) {
+		//Add 72 cards
+		for (int i = 0; i < 72; i++) {
 			  Card card = deck.deal();
 			  dwg.addCard(i, card);
 		}
 		
-		modeName = this.getClass().getName();
+	
 	}
 
-	/**
-	 * Sets the instance variable toSelectOrNot to true
-	 * or false based on the parameter, thus enabling
-	 * or disabling the ability to select a set on the canvas.
-	 * 
-	 * @param: set the boolean to which toSelectOrNot will be set
-	*/
-	public void setSelectThreeCards(boolean set) {
-		toSelectOrNot = set;
-	}
-	
-	
-		
-	private class RestartButtonListener implements ActionListener {
-		public void actionPerformed(ActionEvent event) {
-			cmd = new RestartCmd();
-			cmd.executeClick(dwg);
-			cp.repaint();
-		}
-	}
-	
-	private class SwitchButtonListener implements ActionListener {
-		public void actionPerformed(ActionEvent event) {
-		
-			cp.removeAll();
-			cp.repaint();
-			dwg = new Drawing();
-			
-			if(modeName == "Solitaire"){
-				new Tutorial(dwg, cp);
-			}
-			else{
-				new Solitaire(dwg, cp); 
-			}
-		}
-	}
-	
+
 	
 	/** 
 	   * CanvasPanel is the class upon which we actually draw.  It listens
