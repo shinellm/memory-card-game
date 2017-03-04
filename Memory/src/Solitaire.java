@@ -23,19 +23,26 @@ public class Solitaire extends Mode {
 		c = cp;
 	
 		//Make JButton objects 
+		JButton flipButton = new JButton("Flip Cards");
 		JButton removeButton = new JButton("Remove Pair");
+		
 		
 				
 		//Add listeners to buttons
+		flipButton.addActionListener(new FlipButtonListener());
 		removeButton.addActionListener(new RemoveButtonListener());
 		
 		
 		JPanel optionPanel = new JPanel();
-		optionPanel.setLayout(new BoxLayout(optionPanel, BoxLayout.PAGE_AXIS));
-		removeButton.setBackground(Color.cyan);
+		//optionPanel.setLayout(new BoxLayout(optionPanel, BoxLayout.PAGE_AXIS));
+		optionPanel.setLayout(new FlowLayout());
+		flipButton.setBackground(Color.yellow);
+		removeButton.setBackground(Color.yellow);
 		
+		optionPanel.add(flipButton);
+	//	optionPanel.add(Box.createRigidArea(new Dimension(0,5)));
 		optionPanel.add(removeButton);
-		optionPanel.add(Box.createRigidArea(new Dimension(0,5)));
+		//optionPanel.add(Box.createRigidArea(new Dimension(0,5)));
 		
 		optionPanel.setBackground(Color.white);
 		
@@ -45,6 +52,13 @@ public class Solitaire extends Mode {
 		
 	}
 	
+	private class FlipButtonListener implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
+			//cmd = new RemoveCmd();
+			cmd.executeClick(d);
+			c.repaint();
+		}
+	}
 	
 	private class RemoveButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
