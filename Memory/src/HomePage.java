@@ -40,6 +40,7 @@ public class HomePage extends JApplet {
 		modePanel = new JPanel(); //Holds the buttons horizontally
 		setLabel = new JLabel("Enter 3 Charecter ID: ");
 		modePanel.setLayout(new FlowLayout());
+		modePanel.setBackground(Color.cyan);
 		modePanel.add(setLabel);
 		modePanel.add(textInput);
 		enterButton.setBackground(Color.green);
