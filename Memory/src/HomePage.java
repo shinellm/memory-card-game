@@ -1,9 +1,9 @@
 /**
  * HomePage.java
  * Initial page for an object-oriented GUI
- * for playing Set.
+ * for playing Memory.
  * 
- * @author Rory Bennett
+ * @author Rory Bennett, edited by Elizabeth Ricci
  */
 import java.awt.*;
 import java.awt.event.*;
@@ -15,10 +15,10 @@ public class HomePage extends JApplet {
 	
 	private final int APPLET_WIDTH = 1200, APPLET_HEIGHT = 1200;
 	private Drawing dwg;
-	private Mode mode;
 	private Container cp;
 	private JPanel modePanel;
 	private JLabel setLabel;
+	private JTextField textInput;
 
 	
 	/**
@@ -30,7 +30,7 @@ public class HomePage extends JApplet {
 		
 		//Make JButton objects for the two modes of play
 		JButton enterButton = new JButton("Enter");
-		
+		textInput = new JTextField("Ex: 123");
 		
 		//Add listeners to the two Modes subclass buttons
 		enterButton.addActionListener(new EnterButtonListener());
@@ -38,9 +38,10 @@ public class HomePage extends JApplet {
 		
 		//The two buttons will be adjacent to one another, in one row of two
 		modePanel = new JPanel(); //Holds the buttons horizontally
-		setLabel = new JLabel("Enter Name: ");
+		setLabel = new JLabel("Enter 3 Charecter ID: ");
 		modePanel.setLayout(new FlowLayout());
 		modePanel.add(setLabel);
+		modePanel.add(textInput);
 		enterButton.setBackground(Color.green);
 		modePanel.add(enterButton);
 		
@@ -49,7 +50,6 @@ public class HomePage extends JApplet {
 		cp = getContentPane();
 		cp.setLayout(new BorderLayout());
 		cp.add(modePanel, BorderLayout.CENTER);
-		mode = null;
 		setSize(APPLET_WIDTH, APPLET_HEIGHT);
 		cp.repaint();
 	}
@@ -63,6 +63,8 @@ public class HomePage extends JApplet {
 	
 	private class EnterButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
+			String userId = textInput.getText();
+			System.out.println(userId);
 			JButton button = (JButton)event.getSource();
 			JPanel panel = (JPanel)button.getParent();
 			panel.remove(0);
@@ -71,7 +73,7 @@ public class HomePage extends JApplet {
 			panel.validate();
 			Container cp = (Container)panel.getParent();
 			cp.remove(0);
-			mode = new Solitaire(dwg, cp);
+			new Solitaire(dwg, cp);
 		}
 	}
 	

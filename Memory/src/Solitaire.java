@@ -48,7 +48,7 @@ public class Solitaire extends Mode {
 	
 	private class RemoveButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			cmd = new RemoveCmd();
+			//cmd = new RemoveCmd();
 			cmd.executeClick(d);
 			c.repaint();
 		}
