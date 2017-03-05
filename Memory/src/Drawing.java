@@ -17,8 +17,8 @@ public class Drawing {
 	private ArrayList<Card> selectedCards = new ArrayList<Card>();
 	private int num_removed;
 	
-	private final int CARDS_PER_ROW = 9;
-	private final int NUM_ROWS = 8;
+	private final int CARDS_PER_ROW = 8;
+	private final int NUM_ROWS = 9;
 	private final int CARDS_ON_TABLE = 72;
 	
 	public Drawing () {

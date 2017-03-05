@@ -87,6 +87,10 @@ public class Card{
 		return inPlay;
 	}
 	
+	public URL getURL() {
+		return imageLink;
+	}
+	
 	public void setInPlay(boolean status) {
 		inPlay = status;
 	}
