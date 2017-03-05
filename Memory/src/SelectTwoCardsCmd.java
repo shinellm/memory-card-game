@@ -25,7 +25,7 @@ public class SelectTwoCardsCmd extends Command {
 	 * @param p the coordinates of the click
 	 * @param dwg the drawing 
 	 */
-	public void addToSet(Drawing dwg, Point p) {
+	public void selectPair(Drawing dwg, Point p) {
 	
 	}
 }
