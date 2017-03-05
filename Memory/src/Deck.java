@@ -9,9 +9,13 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.smartcardio.Card;
+
+import images;
+
 public class Deck {
 	private ArrayList <Card> arr = new ArrayList<Card>();
-	public static final int TOTAL_CARDS = 81;
+	public static final int TOTAL_CARDS = 72;
 	
 	private static Deck uniqueInstance = null;	//The Singleton deck
 	
@@ -19,16 +23,11 @@ public class Deck {
 										//on the deck.
 	private Deck() {
 		int index = 0;
-		for (int i = 1; i < 4; i++) {
-			for (int j = 1; j < 4; j++) {
-				for (int k = 1; k < 4; k++) {
-					for (int l = 1; l < 4; l++) {
-						Card card = new Card(i, j, k, l);
-						arr.add(index, card);
-						index += 1;
-					}
-				}
-			}
+		for (int i = 0; i < InternationalLibrary.TOTAL_IMAGES; i++) {
+			Card card1 = new Card(InternationalLibrary.getURL(i));
+			Card card2 = new Card(InternationalLibrary.getURL(i + InternationalLibrary.TOTAL_IMAGES));
+			arr.add(i, card1);
+			arr.add(i + InternationalLibrary.TOTAL_IMAGES, card2);
 		}
 	}
 	
