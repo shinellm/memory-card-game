@@ -10,9 +10,8 @@
 public class RestartCmd extends Command {
 
 	/**
-	 * When the "Restart" button is clicked, restart the mode the user is
-	 * currently in. Shuffle the cards in the deck and have the decks pointer 
-	 * return to index 0.  
+	 * When the "Restart" button is clicked, restart the Memory game. 
+	 * Shuffle the cards in the deck and display them faced down.  
 	 * 
 	 * @param dwg the drawing 
 	 */
