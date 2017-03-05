@@ -25,12 +25,14 @@ public class Solitaire extends Mode {
 		//Make JButton objects 
 		JButton flipButton = new JButton("Flip Cards");
 		JButton removeButton = new JButton("Remove Pair");
+		JButton restartButton = new JButton("Restart Game");
 		
 		
 				
 		//Add listeners to buttons
 		flipButton.addActionListener(new FlipButtonListener());
 		removeButton.addActionListener(new RemoveButtonListener());
+		restartButton.addActionListener(new RestartButtonListener());
 		
 		
 		JPanel optionPanel = new JPanel();
@@ -38,12 +40,13 @@ public class Solitaire extends Mode {
 		optionPanel.setLayout(new FlowLayout());
 		flipButton.setBackground(Color.yellow);
 		removeButton.setBackground(Color.yellow);
+		restartButton.setBackground(Color.yellow);
 		
 		optionPanel.add(flipButton);
 	//	optionPanel.add(Box.createRigidArea(new Dimension(0,5)));
 		optionPanel.add(removeButton);
 		//optionPanel.add(Box.createRigidArea(new Dimension(0,5)));
-		
+		optionPanel.add(restartButton);
 		optionPanel.setBackground(Color.white);
 		
 		c.add(optionPanel, BorderLayout.NORTH);
@@ -54,7 +57,7 @@ public class Solitaire extends Mode {
 	
 	private class FlipButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			//cmd = new RemoveCmd();
+			cmd = new SelectTwoCardsCmd();
 			cmd.executeClick(d);
 			c.repaint();
 		}
@@ -62,7 +65,15 @@ public class Solitaire extends Mode {
 	
 	private class RemoveButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			//cmd = new RemoveCmd();
+			cmd = new RemovePairCmd();
+			cmd.executeClick(d);
+			c.repaint();
+		}
+	}
+	
+	private class RestartButtonListener implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
+			cmd = new RestartCmd();
 			cmd.executeClick(d);
 			c.repaint();
 		}
