@@ -8,65 +8,32 @@
 import java.awt.*;
 import java.util.ArrayList;
 
+import javax.smartcardio.Card;
+
 
 
 public class Drawing {
 	private ArrayList<Card> onTable = new ArrayList<Card>();
-	private boolean showingHint;
-	private int num_cards;
-	private int highlight;
+	private ArrayList<Card> selectedCards = new ArrayList<Card>();
+	private int num_removed;
 	
-	private final int CARDS_PER_ROW = 3;
-	private final int MAX_ARR_LEN = 15;	//The most cards the ArrayList can hold
+	private final int CARDS_PER_ROW = 9;
+	private final int NUM_ROWS = 8;
+	private final int CARDS_ON_TABLE = 72;
 	
 	public Drawing () {
-		num_cards = 0;
-		highlight = 0;
-		showingHint = false;
+		num_removed = 0;
 	}
 	
 	/**
-	 * Adds a card at the index in the array, or the location
-	 * on the "table."
+	 * Adds the specified card to the array a the given
+	 * index in the array to indicate that it has been selected
 	 * 
-	 * @param: card the Card to be inserted
-	 * @param: index the index at which the Card is to be inserted
+	 * @param: card the card that has been selected
+	 * @param: index the index in selectedCards at which to add the card
 	 */
-	public void addCard(int index, Card card) {
-		onTable.add(index, card);
-		num_cards += 1;
-	}
-	
-	public int getTableSize() {
-		return onTable.size();
-	}
-	
-	/**
-	 * Removes a card from the ArrayList at the specified index
-	 * 
-	 * @param: index the index in the ArrayList at which the 
-	 * card-to-be-removed is located.
-	 */
-	public void removeCard(int index) {
-		onTable.get(index).unsetHighlighted();
-		onTable.remove(index);
-		num_cards = num_cards - 1;
-	}
-	
-	/**
-	 * Replaces the card at the specified index
-	 */
-	public void replaceCard(int index, Card card) {
-		onTable.get(index).unsetHighlighted();
-		onTable.remove(index);
-		onTable.add(index, card);
-	}
-	
-	/**
-	 * Returns the onTable Card ArrayList
-	 */
-	public ArrayList<Card> getTable() {
-		return onTable;
+	public void addToSelectArray(Card card, int index) {
+		selectCards.add(indx, card);
 	}
 	
 	/**
@@ -81,7 +48,7 @@ public class Drawing {
 	 * @return: -1 otherwise
 	 */
 	public int searchTable(Point p) {
-		for (int i = 0; i < num_cards; i++) {
+		for (int i = 0; i < CARDS_ON_TABLE; i++) {
 			if (onTable.get(i).containsPoint(p) == true) {
 				return i;
 			}
@@ -112,6 +79,7 @@ public class Drawing {
 		return -1;
 	}
 	
+	//getter methods
 	/**
 	 * Returns the Card at the specified index in the
 	 * table ArrayList. Used to get each card in the 
@@ -121,6 +89,21 @@ public class Drawing {
 	 */
 	public Card getCard(int index) {
 		return onTable.get(index);
+	}
+	
+	/**
+	 * Returns the onTable Card ArrayList
+	 */
+	public ArrayList<Card> getTable() {
+		return onTable;
+	}
+	
+	public ArrayList<Card> getSelectedCards() {
+		return selectedCards;
+	}
+	
+	public int getSelectSize() {
+		return selectedCards.size();
 	}
 
 	/**
@@ -142,123 +125,6 @@ public class Drawing {
 		}
 		return false;
 	}
-	
-	/**
-	 * Given three unique Card objects, checks 
-	 * to see if together, they constitute a 
-	 * valid set.
-	 * 
-	 * @param: list the ArrayList containing the three
-	 * Cards to be checked for sethood
-	 * @return: true if they do make a set, false otherwise
-	 */
-	public boolean isASet(ArrayList<Card> list) {
-		Card card1 = list.get(0);
-		Card card2 = list.get(1);
-		Card card3 = list.get(2);
-		
-		if (allOrNothing(card1.getColor(), card2.getColor(), card3.getColor())
-				&& allOrNothing(card1.getShape(), card2.getShape(), card3.getShape())
-				&& allOrNothing(card1.getCount(), card2.getCount(), card3.getCount())
-				&& allOrNothing(card1.getShading(), card2.getShading(), card3.getShading())) {
-			return true;
-		}
-		
-		return false;
-	}
-	
-	/**
-	* Returns the ArrayList of all possible sets 
-	* out of the existing cards on the table
-	*
-	* @return: allSets the ArrayList of each ArrayList that
-	* represents each set on the table.
-	*/
-	public ArrayList<ArrayList<Card>> getAllSets() {
-		ArrayList<ArrayList<Card>> allSets = new ArrayList<ArrayList<Card>>();
-		int arr_index = 0;
-		for (int i = 0; i < num_cards - 2; i++) {
-			for (int j = i + 1; j < num_cards - 1; j++) {
-				for (int k = j + 1; k < num_cards; k++) {
-					ArrayList<Card> singleSet = new ArrayList<Card>();
-					singleSet.add(0, onTable.get(i));
-					singleSet.add(1, onTable.get(j));
-					singleSet.add(2, onTable.get(k));
-					if (isASet(singleSet) == true) {
-						allSets.add(arr_index, singleSet);
-						arr_index += 1;
-					}
-				}
-			}
-		}
-		return allSets;
-	}
-	
-	/**
-	 * Helper method that checks whether or not given 
-	 * three values, they are either all the same or 
-	 * all different
-	 * 
-	 * @param: one the first value to be compared
-	 * @param: two the second value
-	 * @param: three the third value
-	 * @returns: true if one, two, and three are all equal
-	 * or all unequal, false otherwise
-	 */
-	private boolean allOrNothing(int one, int two, int three) {
-		if ((one == two) && (one == three) && (two == three)) {
-			return true;
-		} else if ((one != two ) && (one != three) && (two != three)) {
-			return true;
-		} 
-		
-		return false;
-	}
-
-	/**
-	 * Gets the current value of highlight
-	*/
-	public int getHighlight() {
-		return highlight;
-	}
-
-	public void incrementHighlight() {
-		highlight += 1;
-	}
-
-	public void decrementHighlight() {
-		highlight -= 1;
-	}
-
-	/**
-	 * Sets highlight back to zero, for when
-	 * a set of 12 new cards are dealt in Tutorial
-	*/
-	public void newHighlight() {
-		highlight = 0;
-	}
-	
-	/**
-	 * Gets the current value of showingHint
-	*/
-	public boolean isShowingHint() {
-		return showingHint;
-	}
-	
-	/**
-	 * Sets showingHint to true.
-	*/
-	public void showingHint() {
-		showingHint = true;
-	}
-	
-	/**
-	 * Sets showingHint to false.
-	*/
-	public void notShowingHint() {
-		showingHint = false;
-	}
-	
 
 	/**
 	 * Draws (or redraws) each Card, based on the latest changes 
