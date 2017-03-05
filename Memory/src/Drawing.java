@@ -10,8 +10,6 @@ import java.util.ArrayList;
 
 import javax.smartcardio.Card;
 
-
-
 public class Drawing {
 	private ArrayList<Card> onTable = new ArrayList<Card>();
 	private ArrayList<Card> selectedCards = new ArrayList<Card>();
@@ -23,6 +21,10 @@ public class Drawing {
 	
 	public Drawing () {
 		num_removed = 0;
+		Deck deck = Deck.getUniqueInstance();
+		for (int i = 0; i < CARDS_ON_TABLE;i++) {
+			onTable.add(i, deck.getAtIndex(i));
+		}
 	}
 	
 	/**
@@ -48,6 +50,7 @@ public class Drawing {
 	 * @return: -1 otherwise
 	 */
 	public int searchTable(Point p) {
+		Deck deck = Deck.getUniqueInstance();
 		for (int i = 0; i < CARDS_ON_TABLE; i++) {
 			if (onTable.get(i).containsPoint(p) == true) {
 				return i;
@@ -136,14 +139,14 @@ public class Drawing {
 	 * @param: startY The playing field's upper-left corner's y-coordinate
 	 */
 	public void draw(Graphics page) {
-		for (int i = 0; i < num_cards; i++) {
-			if (((i + 5) % CARDS_PER_ROW) == 2) {
+		int relative;
+		for (int i = 0; i < CARDS_ON_TABLE; i++) {
+			relative = (i + 15) % CARDS_PER_ROW;
+			if (relative == 7) {
 				onTable.get(i).draw(page, Mode.canvasX + 10, Mode.canvasY + 10 + (80*(i/CARDS_PER_ROW)));
-			} else if (((i + 5) % CARDS_PER_ROW) == 0) { 
-				onTable.get(i).draw(page, Mode.canvasX + 60, Mode.canvasY + 10 + (80*(i/CARDS_PER_ROW)));
-			} else {
-				onTable.get(i).draw(page, Mode.canvasX + 110, Mode.canvasY + 10 + (80*(i/CARDS_PER_ROW)));
-			}
+			} else { 
+				onTable.get(i).draw(page, Mode.canvasX + 10 + (50 * (i + 1)), Mode.canvasY + 10 + (80*(i/CARDS_PER_ROW)));
+			} 
 		}
 	}
 }
