@@ -24,8 +24,9 @@ public class Deck {
 	private Deck() {
 		int index = 0;
 		for (int i = 0; i < InternationalLibrary.TOTAL_IMAGES; i++) {
-			Card card1 = new Card(InternationalLibrary.getURL(i));
-			Card card2 = new Card(InternationalLibrary.getURL(i + InternationalLibrary.TOTAL_IMAGES));
+			Card card1 = new Card(ImageLibrary.getURL(i, InternationalLibrary.getUniqueInstance().getURLs()));
+			Card card2 = new Card(ImageLibrary.getURL(i + InternationalLibrary.TOTAL_IMAGES,
+					InternationalLibrary.getUniqueInstance().getURLs()));
 			arr.add(i, card1);
 			arr.add(i + InternationalLibrary.TOTAL_IMAGES, card2);
 		}
