@@ -19,13 +19,16 @@ public class Card{
 	private int x;		//The x-coordinate of a Card's upper-left corner
 	private int y;		//The y-coordinate of a Card's upper-left corner
 
-	public static final int WIDTH = 50;
-	public static final int HEIGHT = 70;
+	public static final int WIDTH = 60;
+	public static final int HEIGHT = 80;
+	
+	public static final int IMAGE_WIDTH = 50;
+	public static final int IMAGE_HEIGHT = 70;
 
 	public Card(URL url) {
 		imageLink = url;
 		faceUp = false;
-		inPlay = false;
+		inPlay = true;
 	}
 
 	/**
@@ -44,20 +47,22 @@ public class Card{
 		x = x_coor;					//Sets the x-coordinate of this Card
 		y = y_coor;					//Sets the y-coordinate of this Card
 		Color savedColor = page.getColor();
-		page.setColor(Color.white);
-		page.fillRect(x, y, WIDTH, HEIGHT);
-
-		if (highlighted == true) {
-			page.setColor(Color.red);
-			page.drawRect(x,  y, WIDTH, HEIGHT);
-			page.drawRect(x - 1,  y - 1, WIDTH + 2, HEIGHT + 2);
-			page.drawRect(x - 2,  y - 2, WIDTH + 4, HEIGHT + 4);
-		} else {
+		
+		if (inPlay == false) {
 			page.setColor(Color.black);
-			page.drawRect(x,  y, WIDTH, HEIGHT);
-		}
-
-		take_Color(page);
+			page.drawRect(x, y, WIDTH, HEIGHT);
+		} else {
+			page.setColor(Color.red);
+			page.drawRect(x_coor,  y,  WIDTH,  HEIGHT);
+			if (faceUp == true) {
+				BufferedImage image;
+				try {
+					image = ImageIO.read(url);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		} 
 		page.setColor(savedColor);
 	}
 
