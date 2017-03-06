@@ -9,8 +9,6 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.smartcardio.Card;
-
 import images.*;
 
 public class Deck {
@@ -33,7 +31,7 @@ public class Deck {
 	}
 	
 	/**
-	 * Shuffles the deck using a pseudorandom
+	 * Shuffles the deck using a pseudo random
 	 * number generator
 	 */
 	public void shuffle() {

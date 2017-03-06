@@ -57,7 +57,7 @@ public class Card{
 			if (faceUp == true) {
 				BufferedImage image;
 				try {
-					image = ImageIO.read(url);
+					image = ImageIO.read(imageLink);
 					page.drawImage(image,  x+((WIDTH - IMAGE_WIDTH)/2),  y+((HEIGHT - IMAGE_HEIGHT)/2),
 							IMAGE_WIDTH, IMAGE_HEIGHT, page.getColor(), null);
 				} catch (IOException e) {

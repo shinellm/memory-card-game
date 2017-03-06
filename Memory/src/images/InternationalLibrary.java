@@ -17,7 +17,7 @@ public class InternationalLibrary extends ImageLibrary{
 			"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQP6NkRRmI-VYFCG4baixH7R0m6EcggW-vQYKp51O4F5lzDmhEYDw",
 			"http://mexico.phillipmartin.info/mexico_cactus.gif"};
 	private ArrayList<URL> holders = new ArrayList<URL>();
-	private static InternationalLibrary6 uniqueInstance;
+	private static InternationalLibrary uniqueInstance;
 	private InternationalLibrary() {
 		for (int i = 0; i < 12; i++) {
 			  try {

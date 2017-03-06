@@ -8,8 +8,6 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-import javax.smartcardio.Card;
-
 public class Drawing {
 	private ArrayList<Card> onTable = new ArrayList<Card>();
 	private ArrayList<Card> selectedCards = new ArrayList<Card>();
@@ -28,14 +26,14 @@ public class Drawing {
 	}
 	
 	/**
-	 * Adds the specified card to the array a the given
+	 * Adds the specified card to the array at the given
 	 * index in the array to indicate that it has been selected
 	 * 
 	 * @param: card the card that has been selected
 	 * @param: index the index in selectedCards at which to add the card
 	 */
 	public void addToSelectArray(Card card, int index) {
-		selectCards.add(indx, card);
+		selectedCards.add(index, card);
 	}
 	
 	/**
