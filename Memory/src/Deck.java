@@ -11,7 +11,7 @@ import java.util.Random;
 
 import javax.smartcardio.Card;
 
-import images;
+import images.*;
 
 public class Deck {
 	private ArrayList <Card> arr = new ArrayList<Card>();

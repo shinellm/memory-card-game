@@ -22,7 +22,7 @@ public class Card{
 	public static final int WIDTH = 60;
 	public static final int HEIGHT = 80;
 	
-	public static final int IMAGE_WIDTH = 50;
+	public static final int IMAGE_WIDTH = 40;
 	public static final int IMAGE_HEIGHT = 70;
 
 	public Card(URL url) {
@@ -58,6 +58,8 @@ public class Card{
 				BufferedImage image;
 				try {
 					image = ImageIO.read(url);
+					page.drawImage(image,  x+((WIDTH - IMAGE_WIDTH)/2),  y+((HEIGHT - IMAGE_HEIGHT)/2),
+							IMAGE_WIDTH, IMAGE_HEIGHT, page.getColor(), null);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
