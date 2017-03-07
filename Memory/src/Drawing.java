@@ -19,10 +19,37 @@ public class Drawing {
 	
 	public Drawing () {
 		num_removed = 0;
-		Deck deck = Deck.getUniqueInstance();
-		for (int i = 0; i < CARDS_ON_TABLE;i++) {
-			onTable.add(i, deck.getAtIndex(i));
-		}
+	}
+	
+	/**
+	 * Adds a card at the index in the array, or the location
+	 * on the "table."
+	 * 
+	 * @param: card the Card to be inserted
+	 * @param: index the index at which the Card is to be inserted
+	 */
+	public void addCard(int index, Card card) {
+		onTable.add(index, card);
+		num_cards += 1;
+	}
+	
+	/**
+	 * Removes a card from the ArrayList at the specified index
+	 * 
+	 * @param: index the index in the ArrayList at which the 
+	 * card-to-be-removed is located.
+	 */
+	public void removeCard(int index) {
+		onTable.get(index).setInPlay(false);
+		num_cards = num_cards - 1;
+	}
+	
+	/**
+	 * Replaces the card at the specified index
+	 */
+	public void replaceCard(int index, Card card) {
+		onTable.remove(index);
+		onTable.add(index, card);
 	}
 	
 	/**
