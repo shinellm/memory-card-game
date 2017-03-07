@@ -113,6 +113,10 @@ public class Drawing {
 		return selectedCards.size();
 	}
 
+	public boolean isAMatch() {
+		return selectedCards.get(0).isEqual(selectedCards.get(1));
+	}
+
 	/**
 	 * Draws (or redraws) each Card, based on the latest changes 
 	 * per the shapes' attributes/params.

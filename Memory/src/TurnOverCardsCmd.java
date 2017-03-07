@@ -20,8 +20,8 @@ public class TurnOverCardsCmd extends Command {
 	 * @param dwg the drawing 
 	 */
 	public void executeClick(Drawing dwg) {
-		pair = dwg.getSelectedCards(); //Get the Cards that were selected
-		if (dwg.isAMatch(pair)) { //Do the selected cards match?
+
+		if (dwg.isAMatch()) { //Do the selected cards match?
 			//Display a prompt telling the user to remove the selected cards
 		}
 		else {

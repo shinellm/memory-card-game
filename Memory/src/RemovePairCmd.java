@@ -21,7 +21,7 @@ public class RemovePairCmd extends Command {
 	 */
 	public void executeClick(Drawing dwg) {	
 		pair = dwg.getSelectedCards(); //Get the Cards that were selected
-		if (dwg.isAMatch(pair)) { //Do the selected cards match?
+		if (dwg.isAMatch()) { //Do the selected cards match?
 			for (int j = 0; j < 2; j++) {
 				pair.get(j).setFaceUp(false); //Turn the selected cards so they are faced down
 				pair.get(j).setInPlay(false); //The selected cards are removed from play
