@@ -22,14 +22,14 @@ public class TurnOverCardsCmd extends Command {
 	public void executeClick(Drawing dwg) {
 		pair = dwg.getSelectedCards(); //Get the Cards that were selected
 		if (dwg.isAMatch(pair)) { //Do the selected cards match?
-			//display a prompt telling the user to remove the selected cards
+			//Display a prompt telling the user to remove the selected cards
 		}
 		else {
 			for (int j = 0; j < 2; j++) {
-				dwg.addToSelectArray(pair.get(j), j);
 				pair.get(j).setFaceUp(false); //Turn the selected cards so they are faced down
 				pair.unsetHighlighted(); //unhighlight the selected card
 			}
+			// Clear the SelectedCards array in the drawing class
 		}
 		pair.clear(); //clear the array of cards selected
 	}

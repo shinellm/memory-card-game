@@ -19,6 +19,19 @@ public class RemovePairCmd extends Command {
 	 * 
 	 * @param dwg the drawing 
 	 */
-	public void executeClick(Drawing dwg) {	}
-	
+	public void executeClick(Drawing dwg) {	
+		pair = dwg.getSelectedCards(); //Get the Cards that were selected
+		if (dwg.isAMatch(pair)) { //Do the selected cards match?
+			for (int j = 0; j < 2; j++) {
+				pair.get(j).setFaceUp(false); //Turn the selected cards so they are faced down
+				pair.get(j).setInPlay(false); //The selected cards are removed from play
+				pair.unsetHighlighted(); //unhighlight the selected card
+			}
+			// Clear the SelectedCards array in the drawing class
+		}
+		else {
+			// Display a prompt saying the cards do not match and to press the TurnOverCards Button
+			}
+		pair.clear(); //clear the array of cards selected
+	}
 }
