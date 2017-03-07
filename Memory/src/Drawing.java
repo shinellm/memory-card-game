@@ -12,13 +12,14 @@ public class Drawing {
 	private ArrayList<Card> onTable = new ArrayList<Card>();
 	private ArrayList<Card> selectedCards = new ArrayList<Card>();
 	private int num_removed;
-	
+	private int num_cards;
 	private final int CARDS_PER_ROW = 8;
 	private final int NUM_ROWS = 9;
 	private final int CARDS_ON_TABLE = 72;
 	
 	public Drawing () {
 		num_removed = 0;
+		num_cards = 0;
 	}
 	
 	/**
@@ -42,6 +43,7 @@ public class Drawing {
 	public void removeCard(int index) {
 		onTable.get(index).setInPlay(false);
 		num_cards = num_cards - 1;
+		num_removed += 1;
 	}
 	
 	/**
@@ -84,29 +86,6 @@ public class Drawing {
 		return -1;
 	}
 	
-	/**
-	 * Given a Card, this method searches through
-	 * this Drawing's table ArrayList and compares
-	 * the four fields values with those of each 
-	 * card in the ArrayList.
-	 * 
-	 * @param: card a card, the index for which the
-	 * table ArrayList is being searched.
-	 * @return: the index of the Card if it appears 
-	 * on the table, -1 otherwise.
-	 */
-	public int compareForIndex(Card card) {
-		for (int i = 0; i < num_cards; i++) {
-			if ((card.getCount() == onTable.get(i).getCount())
-				&& (card.getShape() == onTable.get(i).getShape())
-				&& (card.getColor() == onTable.get(i).getColor())
-				&& (card.getShading() == onTable.get(i).getShading())) {
-				return i;
-			}
-		}
-		return -1;
-	}
-	
 	//getter methods
 	/**
 	 * Returns the Card at the specified index in the
@@ -132,26 +111,6 @@ public class Drawing {
 	
 	public int getSelectSize() {
 		return selectedCards.size();
-	}
-
-	/**
-	 * Compares the contents of two cards
-	 * @param: card1 the first Card to be compared
-	 * @param: card2 the second Card to be compared
-	 * @return: true if the two Cards' four fields
-	 * all hold the same values, false otherwise
-	 */
-	public boolean compareCards(Card card1, Card card2) {
-		if (card1.getColor() == card2.getColor()) {
-			if (card1.getShape() == card2.getShape()) {
-				if (card1.getCount() == card2.getCount()) {
-					if (card1.getShading() == card2.getShading()) {
-						return true;
-					}
-				}
-			}
-		}
-		return false;
 	}
 
 	/**
