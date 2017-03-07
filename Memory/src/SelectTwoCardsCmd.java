@@ -43,10 +43,9 @@ public class SelectTwoCardsCmd extends Command {
 				else{
 					twoCards.add(c);
 					// We have two cards in our ArrayList.
-					if (dwg.isAMatch(twoCards)) { //Do the selected cards match?
-						for (int j = 0; j < 2; j++) {
-							dwg.addToSelectArray(twoCards.get(j), j);
-						}
+					for (int j = 0; j < 2; j++) {
+						dwg.addToSelectArray(twoCards.get(j), j);
+						twoCards.get(j).setFaceUp(true); //Turn the selected cards so they are faced up
 					}
 					// Now we clear the ArrayList and can select 3 more cards.
 					twoCards.clear();
