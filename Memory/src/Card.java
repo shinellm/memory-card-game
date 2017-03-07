@@ -105,4 +105,16 @@ public class Card{
 	public void setFaceUp(boolean face) {
 		faceUp = face;
 	}
+	
+	/**
+	 * Compares the URLs for this card and another,
+	 * and determines whether or not they are equal.
+	 * 
+	 * @param: card the Card object to be compared to 
+	 * this Card object.
+	 * @return: true if they are equal, false otherwise.
+	 */
+	public boolean isEqual(Card card) {
+		return imageLink.equals(card.getURL());
+	}
 }
