@@ -27,7 +27,7 @@ public class SelectTwoCardsCmd extends Command {
 	 */
 	public void selectPair(Drawing dwg, Point p) {
 		if (dwg.getSelectedCards().isEmpty()) { //Are there two cards already selected?
-			
+
 			int i = dwg.searchTable(p); // Find the index of the card containing p.
 			Card c = dwg.getCard(i); // Find the card at index i.
 			Deck deck = Deck.getUniqueInstance();
@@ -38,17 +38,15 @@ public class SelectTwoCardsCmd extends Command {
 					c.setFaceUp(true); // Turn the selected card so that it is face up
 				}
 				else {
-					if (twoCards.get(0).isEqual(c) == false) { // Was the second card click already selected?
-						twoCards.add(c);
-						c.setFaceUp(true); // Turn the selected card so that it is face up
+					twoCards.add(c);
+					c.setFaceUp(true); // Turn the selected card so that it is face up
 
-						// We have two cards in our ArrayList.
-						for (int j = 0; j < 2; j++) {
-							dwg.addToSelectArray(twoCards.get(j), j);
-						}
-						// Now we clear the ArrayList and can select 2 more cards.
-						twoCards.clear();
+					// We have two cards in our ArrayList.
+					for (int j = 0; j < 2; j++) {
+						dwg.addToSelectArray(twoCards.get(j), j);
 					}
+					// Now we clear the ArrayList and can select 2 more cards.
+					twoCards.clear();
 				}
 			}
 		}
