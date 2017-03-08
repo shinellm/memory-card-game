@@ -8,6 +8,8 @@
 import java.awt.*;
 import java.util.ArrayList;
 
+import javax.smartcardio.Card;
+
 public class Drawing {
 	private ArrayList<Card> onTable = new ArrayList<Card>();
 	private ArrayList<Card> selectedCards = new ArrayList<Card>();
@@ -84,6 +86,10 @@ public class Drawing {
 			}
 		}
 		return -1;
+	}
+	
+	public void dumpSelectedCards() {
+		selectedCards.clear();
 	}
 	
 	//getter methods
