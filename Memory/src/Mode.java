@@ -22,7 +22,7 @@ public class Mode extends JApplet{
 	public Mode(Drawing d, Container c){
 		dwg = d;
 		cp = c;
-		cmd = new Command();
+		cmd = new SelectTwoCardsCmd();
 		
 		CanvasPanel canvasPanel = new CanvasPanel();
 		canvasPanel.setBackground(Color.cyan);
@@ -77,7 +77,9 @@ public class Mode extends JApplet{
 	     * current command.
 	     */
 	    public void mouseClicked(MouseEvent event) {
-		
+	    	Point p = event.getPoint();
+    		cmd.selectPair(dwg, p);
+    		repaint();
 	    }
 
 	    // We don't care about the other mouse events.
