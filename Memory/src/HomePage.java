@@ -38,7 +38,7 @@ public class HomePage extends JApplet {
 		
 		//The two buttons will be adjacent to one another, in one row of two
 		modePanel = new JPanel(); //Holds the buttons horizontally
-		setLabel = new JLabel("Enter 3 Charecter ID: ");
+		setLabel = new JLabel("Enter 3 Character ID: ");
 		modePanel.setLayout(new FlowLayout());
 		modePanel.setBackground(Color.cyan);
 		modePanel.add(setLabel);
