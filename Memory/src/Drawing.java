@@ -8,8 +8,6 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-import javax.smartcardio.Card;
-
 public class Drawing {
 	private ArrayList<Card> onTable = new ArrayList<Card>();
 	private ArrayList<Card> selectedCards = new ArrayList<Card>();
@@ -18,12 +16,12 @@ public class Drawing {
 	private final int CARDS_PER_ROW = 8;
 	private final int NUM_ROWS = 9;
 	private final int CARDS_ON_TABLE = 72;
-	
+
 	public Drawing () {
 		num_removed = 0;
 		num_cards = 0;
 	}
-	
+
 	/**
 	 * Adds a card at the index in the array, or the location
 	 * on the "table."
@@ -35,7 +33,7 @@ public class Drawing {
 		onTable.add(index, card);
 		num_cards += 1;
 	}
-	
+
 	/**
 	 * Removes a card from the ArrayList at the specified index
 	 * 
@@ -47,7 +45,7 @@ public class Drawing {
 		num_cards = num_cards - 1;
 		num_removed += 1;
 	}
-	
+
 	/**
 	 * Replaces the card at the specified index
 	 */
@@ -55,7 +53,7 @@ public class Drawing {
 		onTable.remove(index);
 		onTable.add(index, card);
 	}
-	
+
 	/**
 	 * Adds the specified card to the array at the given
 	 * index in the array to indicate that it has been selected
@@ -66,7 +64,7 @@ public class Drawing {
 	public void addToSelectArray(Card card, int index) {
 		selectedCards.add(index, card);
 	}
-	
+
 	/**
 	 * Given a Card object, this method
 	 * searches through the Drawing's arraylist-
@@ -87,11 +85,11 @@ public class Drawing {
 		}
 		return -1;
 	}
-	
+
 	public void dumpSelectedCards() {
 		selectedCards.clear();
 	}
-	
+
 	//getter methods
 	/**
 	 * Returns the Card at the specified index in the
@@ -103,18 +101,18 @@ public class Drawing {
 	public Card getCard(int index) {
 		return onTable.get(index);
 	}
-	
+
 	/**
 	 * Returns the onTable Card ArrayList
 	 */
 	public ArrayList<Card> getTable() {
 		return onTable;
 	}
-	
+
 	public ArrayList<Card> getSelectedCards() {
 		return selectedCards;
 	}
-	
+
 	public int getSelectSize() {
 		return selectedCards.size();
 	}

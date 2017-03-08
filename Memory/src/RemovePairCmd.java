@@ -29,7 +29,7 @@ public class RemovePairCmd extends Command {
 				dwg.removeCard(index);
 			}
 			// Clear the SelectedCards array in the drawing class
-			dwg.getSelectedCards().clear();
+			dwg.dumpSelectedCards();
 		}
 		else {
 			// Display a prompt saying the cards do not match and to press the TurnOverCards Button
