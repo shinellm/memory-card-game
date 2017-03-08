@@ -44,7 +44,7 @@ public class InternationalLibrary extends ImageLibrary{
 	private ArrayList<URL> holders = new ArrayList<URL>();
 	private static InternationalLibrary uniqueInstance;
 	private InternationalLibrary() {
-		for (int i = 0; i < 12; i++) {
+		for (int i = 0; i < 36; i++) {
 			  try {
 					URL url = new URL(urls[i]);
 					holders.add(i, url);

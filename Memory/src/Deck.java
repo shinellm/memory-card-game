@@ -23,10 +23,10 @@ public class Deck {
 		ArrayList<URL> urls = InternationalLibrary.getUniqueInstance().getURLs();
 		for (int i = 0; i < InternationalLibrary.TOTAL_IMAGES; i++) {
 			Card card1 = new Card(ImageLibrary.getURL(i, urls));
-			Card card2 = new Card(ImageLibrary.getURL(i + InternationalLibrary.TOTAL_IMAGES,
+			Card card2 = new Card(ImageLibrary.getURL(i,
 					urls));
 			arr.add(i, card1);
-			arr.add(i + InternationalLibrary.TOTAL_IMAGES, card2);
+			arr.add(i + 1, card2);
 		}
 	}
 	
