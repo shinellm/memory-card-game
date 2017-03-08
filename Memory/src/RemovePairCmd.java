@@ -24,8 +24,8 @@ public class RemovePairCmd extends Command {
 		if (dwg.isAMatch()) { //Do the selected cards match?
 			for (int j = 0; j < 2; j++) {
 				pair.get(j).setFaceUp(false); //Turn the selected cards so they are faced down
+				//dwg.removeCard(index);
 				pair.get(j).setInPlay(false); //The selected cards are removed from play
-				pair.unsetHighlighted(); //unhighlight the selected card
 			}
 			// Clear the SelectedCards array in the drawing class
 		}

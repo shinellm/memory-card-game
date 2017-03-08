@@ -23,7 +23,6 @@ public class RestartCmd extends Command {
 			dwg.replaceCard(i, card); //Replace all the cards on the table
 			card.setInPlay(true); //Set each card to be in play
 			card.setFaceUp(false); //Set each card to be faced down
-			card.unsetHighlighted(); //Makes sure the card is not highlighted
 		}
 	}
 }

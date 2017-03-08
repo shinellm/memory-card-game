@@ -27,7 +27,6 @@ public class TurnOverCardsCmd extends Command {
 		else {
 			for (int j = 0; j < 2; j++) {
 				pair.get(j).setFaceUp(false); //Turn the selected cards so they are faced down
-				pair.unsetHighlighted(); //unhighlight the selected card
 			}
 			// Clear the SelectedCards array in the drawing class
 		}
