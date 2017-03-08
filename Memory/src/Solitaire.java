@@ -60,7 +60,7 @@ public class Solitaire extends Mode {
 	
 	private class FlipButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			cmd = new SelectTwoCardsCmd();
+			cmd = new TurnOverCardsCmd();
 			cmd.executeClick(d);
 			c.repaint();
 		}
