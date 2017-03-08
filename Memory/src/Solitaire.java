@@ -26,13 +26,14 @@ public class Solitaire extends Mode {
 		JButton flipButton = new JButton("Flip Cards");
 		JButton removeButton = new JButton("Remove Pair");
 		JButton restartButton = new JButton("Restart Game");
-		
+		JButton quitButton = new JButton("Quit Game");
 		
 				
 		//Add listeners to buttons
 		flipButton.addActionListener(new FlipButtonListener());
 		removeButton.addActionListener(new RemoveButtonListener());
 		restartButton.addActionListener(new RestartButtonListener());
+		quitButton.addActionListener(new QuitButtonListener());
 		
 		
 		JPanel optionPanel = new JPanel();
@@ -41,12 +42,14 @@ public class Solitaire extends Mode {
 		flipButton.setBackground(Color.yellow);
 		removeButton.setBackground(Color.yellow);
 		restartButton.setBackground(Color.yellow);
+		quitButton.setBackground(Color.yellow);
 		
 		optionPanel.add(flipButton);
 	//	optionPanel.add(Box.createRigidArea(new Dimension(0,5)));
 		optionPanel.add(removeButton);
 		//optionPanel.add(Box.createRigidArea(new Dimension(0,5)));
 		optionPanel.add(restartButton);
+		optionPanel.add(quitButton);
 		optionPanel.setBackground(Color.white);
 		
 		c.add(optionPanel, BorderLayout.NORTH);
@@ -79,5 +82,12 @@ public class Solitaire extends Mode {
 		}
 	}
 		
+	private class QuitButtonListener implements ActionListener {
+		public void actionPerformed(ActionEvent event) {
+			cmd = new QuitCmd();
+			cmd.executeClick(d);
+			c.repaint();
+		}
+	}
 	
 }
