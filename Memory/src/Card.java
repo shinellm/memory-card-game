@@ -19,11 +19,11 @@ public class Card{
 	private int x;		//The x-coordinate of a Card's upper-left corner
 	private int y;		//The y-coordinate of a Card's upper-left corner
 
-	public static final int WIDTH = 60;
-	public static final int HEIGHT = 80;
+	public static final int WIDTH = 50;
+	public static final int HEIGHT = 70;
 	
 	public static final int IMAGE_WIDTH = 40;
-	public static final int IMAGE_HEIGHT = 70;
+	public static final int IMAGE_HEIGHT = 60;
 
 	public Card(URL url) {
 		imageLink = url;
@@ -53,6 +53,8 @@ public class Card{
 			page.drawRect(x, y, WIDTH, HEIGHT);
 		} else {
 			page.setColor(Color.red);
+			page.fillRect(x_coor,  y,  WIDTH,  HEIGHT);
+			page.setColor(Color.black);
 			page.drawRect(x_coor,  y,  WIDTH,  HEIGHT);
 			if (faceUp == true) {
 				BufferedImage image;
