@@ -23,7 +23,7 @@ public class Solitaire extends Mode {
 		c = cp;
 	
 		//Make JButton objects 
-		JButton flipButton = new JButton("Flip Cards");
+		JButton flipButton = new JButton("Turn Over Cards");
 		JButton removeButton = new JButton("Remove Pair");
 		JButton restartButton = new JButton("Restart Game");
 		JButton quitButton = new JButton("Quit Game");
