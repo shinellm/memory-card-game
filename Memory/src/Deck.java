@@ -8,7 +8,7 @@
 
 import java.util.ArrayList;
 import java.util.Random;
-
+import java.net.URL;
 import images.*;
 
 public class Deck {
@@ -20,11 +20,11 @@ public class Deck {
 	private int currCardPointer = 0;	//The index of the ArrayList of cards, representing the top card
 										//on the deck.
 	private Deck() {
-		int index = 0;
+		ArrayList<URL> urls = InternationalLibrary.getUniqueInstance().getURLs();
 		for (int i = 0; i < InternationalLibrary.TOTAL_IMAGES; i++) {
-			Card card1 = new Card(ImageLibrary.getURL(i, InternationalLibrary.getUniqueInstance().getURLs()));
+			Card card1 = new Card(ImageLibrary.getURL(i, urls));
 			Card card2 = new Card(ImageLibrary.getURL(i + InternationalLibrary.TOTAL_IMAGES,
-					InternationalLibrary.getUniqueInstance().getURLs()));
+					urls));
 			arr.add(i, card1);
 			arr.add(i + InternationalLibrary.TOTAL_IMAGES, card2);
 		}
