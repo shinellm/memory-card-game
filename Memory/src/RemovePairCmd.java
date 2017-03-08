@@ -40,7 +40,6 @@ public class RemovePairCmd extends Command {
 			else {
 				// Display a prompt saying the cards do not match and to press the TurnOverCards Button
 			}
-			pair.clear(); //clear the array of cards selected
 		}
 		
 		//There's a problem with how i get the selected cards

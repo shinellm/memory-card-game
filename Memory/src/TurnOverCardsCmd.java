@@ -37,7 +37,6 @@ public class TurnOverCardsCmd extends Command {
 			else {
 				//Display a prompt telling the user to remove the selected cards
 			}
-			pair.clear(); //clear the array of cards selected
 		}
 		
 		//There's a problem with how i get the selected cards
