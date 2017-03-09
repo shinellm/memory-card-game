@@ -88,16 +88,30 @@ public class Drawing {
 		return -1;
 	}
 
+	/**
+	 * Clears the ArrayList of the two cards just selected for
+	 * possible removal
+	 */
 	public void dumpSelectedCards() {
 		selectedCards.clear();
 	}
 
+	//Increments each counter
 	public void incrementNumRemoved() {
 		num_removed += 1;
 	}
 
 	public void incrementNumTurned() {
 		num_turned += 1;
+	}
+
+	/**
+	 * Sets the counters back to zero, as per the
+	 * start of a new game.
+	 */
+	public void resetCounters() {
+		num_turned = 0;
+		num_removed = 0;
 	}
 
 	//getter methods
