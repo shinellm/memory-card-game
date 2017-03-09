@@ -44,29 +44,28 @@ public class Card{
 	 * @param: y_coor the y-coordinate of this Card
 	 */
 	public void draw(Graphics page, int x_coor, int y_coor) {
-		x = x_coor;					//Sets the x-coordinate of this Card
-		y = y_coor;					//Sets the y-coordinate of this Card
+		x = x_coor;                    //Sets the x-coordinate of this Card
+		y = y_coor;                    //Sets the y-coordinate of this Card
 		Color savedColor = page.getColor();
-		
+
 		if (inPlay == false) {
 			page.setColor(Color.black);
 			page.drawRect(x, y, WIDTH, HEIGHT);
-		} else {
+		} else if (faceUp == false) {
 			page.setColor(Color.red);
-			page.fillRect(x_coor,  y,  WIDTH,  HEIGHT);
+			page.fillRect(x_coor, y, WIDTH, HEIGHT);
 			page.setColor(Color.black);
-			page.drawRect(x_coor,  y,  WIDTH,  HEIGHT);
-			if (faceUp == true) {
-				BufferedImage image;
-				try {
-					image = ImageIO.read(imageLink);
-					page.drawImage(image,  x+((WIDTH - IMAGE_WIDTH)/2),  y+((HEIGHT - IMAGE_HEIGHT)/2),
-							IMAGE_WIDTH, IMAGE_HEIGHT, page.getColor(), null);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+			page.drawRect(x_coor, y, WIDTH, HEIGHT);
+		} else {
+			BufferedImage image;
+			try {
+				image = ImageIO.read(imageLink);
+				page.drawImage(image, x + ((WIDTH - IMAGE_WIDTH) / 2), y + ((HEIGHT - IMAGE_HEIGHT) / 2),
+						IMAGE_WIDTH, IMAGE_HEIGHT, page.getColor(), null);
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-		} 
+		}
 		page.setColor(savedColor);
 	}
 

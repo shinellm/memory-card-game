@@ -137,7 +137,7 @@ public class Drawing {
 			if (relative == 7) {
 				onTable.get(i).draw(page, Mode.canvasX + 10, Mode.canvasY + 10 + (Card.HEIGHT*(i/CARDS_PER_ROW)));
 			} else { 
-				onTable.get(i).draw(page, (Card.WIDTH * (relative + 1)), Mode.canvasY + 10 + (Card.HEIGHT*(i/CARDS_PER_ROW)));
+				onTable.get(i).draw(page, (Card.WIDTH * (relative + 2)), Mode.canvasY + 10 + (Card.HEIGHT*(i/CARDS_PER_ROW)));
 			} 
 		}
 	}
