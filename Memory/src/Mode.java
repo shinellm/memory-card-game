@@ -11,7 +11,7 @@ public class Mode extends JApplet{
 	
 	
 	public static final int canvasX = 50;		//The x-coordinate for the canvas panel, on which the cards are draw
-	public static final int canvasY = 20;		//The y-coordinate for the canvas panel, on which the cards are draw
+	public static final int canvasY = 10;		//The y-coordinate for the canvas panel, on which the cards are draw
 	
 	/**
 	 * Default constructor.

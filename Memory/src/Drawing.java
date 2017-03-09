@@ -135,9 +135,11 @@ public class Drawing {
 		for (int i = 0; i < CARDS_ON_TABLE; i++) {
 			relative = (i + 15) % CARDS_PER_ROW;
 			if (relative == 7) {
-				onTable.get(i).draw(page, Mode.canvasX, Mode.canvasY + 10 + (Card.HEIGHT*(i/CARDS_PER_ROW)));
+				onTable.get(i).draw(page, Mode.canvasX, Mode.canvasY + (Card.HEIGHT*(i/CARDS_PER_ROW))
+						+ (i/CARDS_PER_ROW)*10);
 			} else { 
-				onTable.get(i).draw(page, (Card.WIDTH * (relative + 2)), Mode.canvasY + 10 + (Card.HEIGHT*(i/CARDS_PER_ROW)));
+				onTable.get(i).draw(page, (relative+1)*Card.WIDTH + Card.WIDTH * (relative + 2) - 20,
+						Mode.canvasY + Card.HEIGHT*(i/CARDS_PER_ROW) + (i/CARDS_PER_ROW)*10);
 			} 
 		}
 	}
