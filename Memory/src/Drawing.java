@@ -13,8 +13,8 @@ public class Drawing {
 	private ArrayList<Card> selectedCards = new ArrayList<Card>();
 	private int num_removed;
 	private int num_cards;
-	private final int CARDS_PER_ROW = 8;
-	private final int NUM_ROWS = 9;
+	private final int CARDS_PER_ROW = 9;
+	private final int NUM_ROWS = 8;
 	private final int CARDS_ON_TABLE = 72;
 
 	public Drawing () {
@@ -133,8 +133,8 @@ public class Drawing {
 	public void draw(Graphics page) {
 		int relative;
 		for (int i = 0; i < CARDS_ON_TABLE; i++) {
-			relative = (i + 15) % CARDS_PER_ROW;
-			if (relative == 7) {
+			relative = (i + 17) % CARDS_PER_ROW;
+			if (relative == 8) {
 				onTable.get(i).draw(page, Mode.canvasX, Mode.canvasY + (Card.HEIGHT*(i/CARDS_PER_ROW))
 						+ (i/CARDS_PER_ROW)*10);
 			} else { 
