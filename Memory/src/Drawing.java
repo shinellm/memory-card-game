@@ -14,8 +14,8 @@ public class Drawing {
 	private int num_removed;
 	private int num_turned;
 	private int num_cards;
-	private final int CARDS_PER_ROW = 9;
-	private final int NUM_ROWS = 8;
+	private final int CARDS_PER_ROW = 12;
+	private final int NUM_ROWS = 6;
 	private final int CARDS_ON_TABLE = 72;
 
 	public Drawing () {
@@ -142,15 +142,15 @@ public class Drawing {
 	 */
 	public void draw(Graphics page) {
 		int relative;
-		page.drawString("Number of Removed Pairs: " + Integer.toString(num_removed), 300, 780);
-		page.drawString("Number of Pairs Turned Over: " + Integer.toString(num_turned), 800, 780);
+		page.drawString("Number of Removed Pairs: " + Integer.toString(num_removed), 300, 20);
+		page.drawString("Number of Pairs Turned Over: " + Integer.toString(num_turned), 300, 40);
 		for (int i = 0; i < CARDS_ON_TABLE; i++) {
-			relative = (i + 17) % CARDS_PER_ROW;
-			if (relative == 8) {
+			relative = (i + 23) % CARDS_PER_ROW;
+			if (relative == 11) {
 				onTable.get(i).draw(page, Mode.canvasX, Mode.canvasY + (Card.HEIGHT*(i/CARDS_PER_ROW))
 						+ (i/CARDS_PER_ROW)*10);
 			} else { 
-				onTable.get(i).draw(page, (relative+1)*Card.WIDTH + Card.WIDTH * (relative + 2) - 15,
+				onTable.get(i).draw(page, (relative+1)*(Card.WIDTH - 30) + Card.WIDTH * (relative + 2) - 15,
 						Mode.canvasY + Card.HEIGHT*(i/CARDS_PER_ROW) + (i/CARDS_PER_ROW)*10);
 			} 
 		}
