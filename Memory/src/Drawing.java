@@ -12,12 +12,14 @@ public class Drawing {
 	private ArrayList<Card> onTable = new ArrayList<Card>();
 	private ArrayList<Card> selectedCards = new ArrayList<Card>();
 	private int num_removed;
+	private int num_turned;
 	private int num_cards;
 	private final int CARDS_PER_ROW = 9;
 	private final int NUM_ROWS = 8;
 	private final int CARDS_ON_TABLE = 72;
 
 	public Drawing () {
+		num_turned = 0;
 		num_removed = 0;
 		num_cards = 0;
 	}
@@ -90,6 +92,14 @@ public class Drawing {
 		selectedCards.clear();
 	}
 
+	public void incrementNumRemoved() {
+		num_removed += 1;
+	}
+
+	public void incrementNumTurned() {
+		num_turned += 1;
+	}
+
 	//getter methods
 	/**
 	 * Returns the Card at the specified index in the
@@ -132,6 +142,8 @@ public class Drawing {
 	 */
 	public void draw(Graphics page) {
 		int relative;
+		page.drawString("Number of Removed Pairs: " + Integer.toString(num_removed), 100, 820);
+		page.drawString("Number of Pairs Turned Over: " + Integer.toString(num_turned), 100, 820);
 		for (int i = 0; i < CARDS_ON_TABLE; i++) {
 			relative = (i + 17) % CARDS_PER_ROW;
 			if (relative == 8) {

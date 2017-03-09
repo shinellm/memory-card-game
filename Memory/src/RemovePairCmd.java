@@ -35,6 +35,7 @@ public class RemovePairCmd extends Command {
 					dwg.removeCard(index);
 				}
 				// Clear the SelectedCards array in the drawing class
+				dwg.incrementNumRemoved();
 				dwg.dumpSelectedCards();
 			}
 			else {

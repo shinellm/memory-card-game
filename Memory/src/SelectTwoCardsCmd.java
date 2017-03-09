@@ -46,6 +46,7 @@ public class SelectTwoCardsCmd extends Command {
 						dwg.addToSelectArray(twoCards.get(j), j);
 					}
 					// Now we clear the ArrayList and can select 2 more cards.
+					dwg.incrementNumTurned();
 					twoCards.clear();
 				}
 			}
