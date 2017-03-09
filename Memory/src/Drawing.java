@@ -96,13 +96,22 @@ public class Drawing {
 		selectedCards.clear();
 	}
 
-	//Increments each counter
+	//Increment the counters as needed
 	public void incrementNumRemoved() {
 		num_removed += 1;
 	}
 
 	public void incrementNumTurned() {
 		num_turned += 1;
+	}
+
+	//getter methods for each counter
+	public int getNumRemoved() {
+		return num_removed;
+	}
+
+	public int getNumTurned() {
+		return num_turned;
 	}
 
 	/**
