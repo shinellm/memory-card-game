@@ -142,8 +142,8 @@ public class Drawing {
 	 */
 	public void draw(Graphics page) {
 		int relative;
-		page.drawString("Number of Removed Pairs: " + Integer.toString(num_removed), 100, 820);
-		page.drawString("Number of Pairs Turned Over: " + Integer.toString(num_turned), 100, 820);
+		page.drawString("Number of Removed Pairs: " + Integer.toString(num_removed), 300, 780);
+		page.drawString("Number of Pairs Turned Over: " + Integer.toString(num_turned), 800, 780);
 		for (int i = 0; i < CARDS_ON_TABLE; i++) {
 			relative = (i + 17) % CARDS_PER_ROW;
 			if (relative == 8) {
