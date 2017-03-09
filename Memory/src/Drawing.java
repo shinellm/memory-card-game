@@ -138,7 +138,7 @@ public class Drawing {
 				onTable.get(i).draw(page, Mode.canvasX, Mode.canvasY + (Card.HEIGHT*(i/CARDS_PER_ROW))
 						+ (i/CARDS_PER_ROW)*10);
 			} else { 
-				onTable.get(i).draw(page, (relative+1)*Card.WIDTH + Card.WIDTH * (relative + 2) - 20,
+				onTable.get(i).draw(page, (relative+1)*Card.WIDTH + Card.WIDTH * (relative + 2) - 15,
 						Mode.canvasY + Card.HEIGHT*(i/CARDS_PER_ROW) + (i/CARDS_PER_ROW)*10);
 			} 
 		}

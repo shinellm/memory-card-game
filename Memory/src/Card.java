@@ -19,11 +19,11 @@ public class Card{
 	private int x;		//The x-coordinate of a Card's upper-left corner
 	private int y;		//The y-coordinate of a Card's upper-left corner
 
-	public static final int WIDTH = 70;
-	public static final int HEIGHT = 90;
+	public static final int WIDTH = 65;
+	public static final int HEIGHT = 85;
 	
-	public static final int IMAGE_WIDTH = 60;
-	public static final int IMAGE_HEIGHT = 80;
+	public static final int IMAGE_WIDTH = 55;
+	public static final int IMAGE_HEIGHT = 75;
 
 	public Card(URL url) {
 		imageLink = url;
