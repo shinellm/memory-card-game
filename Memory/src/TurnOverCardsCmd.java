@@ -20,14 +20,10 @@ public class TurnOverCardsCmd extends Command {
 	 * @param dwg the drawing 
 	 */
 	public void executeClick(Drawing dwg) {
-		System.out.println("Array: " + dwg.getSelectedCards().size());
-		
 		if(dwg.getSelectSize() == 2){ //Are there cards selected?
 			pair = dwg.getSelectedCards();  //Get the Cards that were selected
-			
+
 			if (dwg.isAMatch() != true) { //Do the selected cards match?
-				
-				System.out.println("Pair?: " + dwg.isAMatch());
 				for (int j = 0; j < 2; j++) {
 					pair.get(j).setFaceUp(false); //Turn the selected cards so they are faced down
 				}
@@ -38,9 +34,5 @@ public class TurnOverCardsCmd extends Command {
 				//Display a prompt telling the user to remove the selected cards
 			}
 		}
-		
-		//There's a problem with how i get the selected cards
-		System.out.println("Array at end: " + dwg.getSelectedCards().size());
-		
 	}
 }

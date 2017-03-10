@@ -21,6 +21,7 @@ public class RestartCmd extends Command {
 		for (int i = 0; i < deck.TOTAL_CARDS; i++) {
 			Card card = deck.deal();
 			dwg.replaceCard(i, card); //Replace all the cards on the table
+			dwg.resetCounters(); //Reset both score counters
 			card.setInPlay(true); //Set each card to be in play
 			card.setFaceUp(false); //Set each card to be faced down
 		}

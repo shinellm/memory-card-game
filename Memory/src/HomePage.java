@@ -13,7 +13,7 @@ import javax.swing.*;
 public class HomePage extends JApplet {
 	private static final long serialVersionUID = 1L;
 	//Size of Applet Increased to make room for more cards
-	private final int APPLET_WIDTH = 1500, APPLET_HEIGHT = 750;
+	private final int APPLET_WIDTH = 1275, APPLET_HEIGHT = 750;
 	private Drawing dwg;
 	private Container cp;
 	private JPanel modePanel;

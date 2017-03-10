@@ -20,14 +20,11 @@ public class RemovePairCmd extends Command {
 	 * @param dwg the drawing 
 	 */
 	public void executeClick(Drawing dwg) {	
-		System.out.println("Array: " + dwg.getSelectedCards().size());
-		
 		if(dwg.getSelectSize() == 2){ //Are there cards selected?
 			pair = dwg.getSelectedCards();  //Get the Cards that were selected
 
 			if (dwg.isAMatch()) { //Do the selected cards match?
 				
-				System.out.println("Remove Pair?: " + dwg.isAMatch());
 				for (int j = 0; j < 2; j++) {
 					pair.get(j).setFaceUp(false); //Turn the selected cards so they are faced down
 					Point point = new Point(pair.get(j).getX(),pair.get(j).getY());
@@ -35,16 +32,11 @@ public class RemovePairCmd extends Command {
 					dwg.removeCard(index);
 				}
 				// Clear the SelectedCards array in the drawing class
-				dwg.incrementNumRemoved();
 				dwg.dumpSelectedCards();
 			}
 			else {
 				// Display a prompt saying the cards do not match and to press the TurnOverCards Button
 			}
 		}
-		
-		//There's a problem with how i get the selected cards
-		System.out.println("Array at end: " + dwg.getSelectedCards().size());
-		
 	}
 }
