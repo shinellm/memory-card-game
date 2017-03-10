@@ -31,8 +31,8 @@ public class RemovePairCmd extends Command {
 					int index = dwg.searchTable(point);
 					dwg.removeCard(index);
 				}
-				// Clear the SelectedCards array in the drawing class
-				dwg.dumpSelectedCards();
+				dwg.dumpSelectedCards(); // Clear the SelectedCards array in the drawing class
+				dwg.incrementNumRemoved(); // Increment the score for number of pairs selected
 			}
 			else {
 				// Display a prompt saying the cards do not match and to press the TurnOverCards Button

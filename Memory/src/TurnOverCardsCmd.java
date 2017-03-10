@@ -27,8 +27,7 @@ public class TurnOverCardsCmd extends Command {
 				for (int j = 0; j < 2; j++) {
 					pair.get(j).setFaceUp(false); //Turn the selected cards so they are faced down
 				}
-				// Clear the SelectedCards array in the drawing class
-				dwg.dumpSelectedCards();
+				dwg.dumpSelectedCards(); // Clear the SelectedCards array in the drawing class
 			}
 			else {
 				//Display a prompt telling the user to remove the selected cards
