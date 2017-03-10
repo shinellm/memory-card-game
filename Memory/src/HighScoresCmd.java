@@ -30,7 +30,7 @@ public class HighScoresCmd extends Command {
     hm.addScore("Lisa",270);
 
     System.out.print(hm.getHighscoreString("Lisa"));
- // Display a prompt saying the cards do not match and to press the TurnOverCards Button
+    // Display the top 10 score for the specified player and display a prompt saying the game has ended and to press the Quit or Restart Button
 	JOptionPane.showMessageDialog(null,"Game Over... Press the 'Quit' or 'Restart' Button.\n" + hm.getHighscoreString("Lisa"));
 	}	
 }
