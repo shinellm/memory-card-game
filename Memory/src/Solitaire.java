@@ -68,7 +68,7 @@ public class Solitaire extends Mode {
 	// different commands
 	private class FlipButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
-			cmd = new TurnOverCardsCmd();
+			cmd = new HighScoresCmd();
 			cmd.executeClick(d);
 			c.repaint();
 		}
