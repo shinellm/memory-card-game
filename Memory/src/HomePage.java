@@ -67,6 +67,9 @@ public class HomePage extends JApplet {
 	private class EnterButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			String userId = textInput.getText();
+			if(userId.length()>3){
+				userId=userId.substring(0, 3);
+			}
 			System.out.println(userId);
 			JButton button = (JButton)event.getSource();
 			JPanel panel = (JPanel)button.getParent();
