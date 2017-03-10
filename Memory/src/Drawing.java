@@ -45,7 +45,6 @@ public class Drawing {
 	public void removeCard(int index) {
 		onTable.get(index).setInPlay(false);
 		num_cards = num_cards - 1;
-		num_removed += 1;
 	}
 
 	/**
