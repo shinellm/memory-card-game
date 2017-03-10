@@ -23,6 +23,7 @@ public class Solitaire extends Mode {
 		c = cp;
 	
 		//Make JButton objects 
+		//New Button Names
 		JButton flipButton = new JButton("Turn Over Cards");
 		JButton removeButton = new JButton("Remove Pair");
 		JButton restartButton = new JButton("Restart Game");
@@ -30,6 +31,7 @@ public class Solitaire extends Mode {
 		
 				
 		//Add listeners to buttons
+		//New Button listeners 
 		flipButton.addActionListener(new FlipButtonListener());
 		removeButton.addActionListener(new RemoveButtonListener());
 		restartButton.addActionListener(new RestartButtonListener());
@@ -39,6 +41,9 @@ public class Solitaire extends Mode {
 		JPanel optionPanel = new JPanel();
 		//optionPanel.setLayout(new BoxLayout(optionPanel, BoxLayout.PAGE_AXIS));
 		optionPanel.setLayout(new FlowLayout());
+		
+		//Changed button color from cyan to yellow, for 
+		// aesthetic purposes
 		flipButton.setBackground(Color.yellow);
 		removeButton.setBackground(Color.yellow);
 		restartButton.setBackground(Color.yellow);
@@ -58,6 +63,9 @@ public class Solitaire extends Mode {
 		
 	}
 	
+	
+	//Button Listeners altered to have more relevant names and 
+	// different commands
 	private class FlipButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			cmd = new TurnOverCardsCmd();

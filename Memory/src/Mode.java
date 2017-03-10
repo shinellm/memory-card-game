@@ -22,6 +22,7 @@ public class Mode extends JApplet{
 	public Mode(Drawing d, Container c){
 		dwg = d;
 		cp = c;
+		//Command changed from SelectThree to SelectTwo
 		cmd = new SelectTwoCardsCmd();
 		
 		CanvasPanel canvasPanel = new CanvasPanel();
@@ -35,7 +36,7 @@ public class Mode extends JApplet{
 		//Initialize deck 
 		deck.shuffle();
 		
-		//Add 72 cards
+		//Altered to add 72 cards instead of 12
 		for (int i = 0; i < 72; i++) {
 			  Card card = deck.deal();
 			  dwg.addCard(i, card);
@@ -78,6 +79,7 @@ public class Mode extends JApplet{
 	     */
 	    public void mouseClicked(MouseEvent event) {
 	    	Point p = event.getPoint();
+	    	//Command changed
     		cmd.selectPair(dwg, p);
     		repaint();
 	    }

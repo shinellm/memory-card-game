@@ -3,7 +3,7 @@
  * Initial page for an object-oriented GUI
  * for playing Memory.
  * 
- * @author Rory Bennett, edited by Elizabeth Ricci
+ * @author Rory Bennett, edited by Elizabeth Ricci for Project 3
  */
 import java.awt.*;
 import java.awt.event.*;
@@ -12,7 +12,7 @@ import javax.swing.*;
 
 public class HomePage extends JApplet {
 	private static final long serialVersionUID = 1L;
-	
+	//Size of Applet Increased to make room for more cards
 	private final int APPLET_WIDTH = 1800, APPLET_HEIGHT = 1000;
 	private Drawing dwg;
 	private Container cp;
@@ -28,16 +28,17 @@ public class HomePage extends JApplet {
 	public void init() {
 		dwg = new Drawing();
 		
-		//Make JButton objects for the two modes of play
+		
+		//Button name altered
 		JButton enterButton = new JButton("Enter");
 		textInput = new JTextField("Ex: 123");
 		
-		//Add listeners to the two Modes subclass buttons
+		//Button Listner altered
 		enterButton.addActionListener(new EnterButtonListener());
 		
 		
-		//The two buttons will be adjacent to one another, in one row of two
-		modePanel = new JPanel(); //Holds the buttons horizontally
+		//Button name and Text Input are new
+		modePanel = new JPanel(); 
 		setLabel = new JLabel("Enter 3 Character ID: ");
 		modePanel.setLayout(new FlowLayout());
 		modePanel.setBackground(Color.cyan);
@@ -62,6 +63,7 @@ public class HomePage extends JApplet {
 		
 	}
 	
+	//New
 	private class EnterButtonListener implements ActionListener {
 		public void actionPerformed(ActionEvent event) {
 			String userId = textInput.getText();
