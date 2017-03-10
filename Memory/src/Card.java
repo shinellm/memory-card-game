@@ -58,8 +58,6 @@ public class Card{
 			page.drawRect(x_coor, y, WIDTH, HEIGHT);
 		} else {
 			BufferedImage image;
-			page.setColor(Color.white);
-			page.fillRect(x_coor, y, WIDTH, HEIGHT);
 			try {
 				image = ImageIO.read(imageLink);
 				page.drawImage(image, x + ((WIDTH - IMAGE_WIDTH) / 2), y + ((HEIGHT - IMAGE_HEIGHT) / 2),
