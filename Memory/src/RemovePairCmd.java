@@ -1,6 +1,7 @@
 
 import java.awt.*;
 import java.util.ArrayList;
+import javax.swing.*;
 
 /**
  * TurnOverCardsCmd.java
@@ -36,6 +37,7 @@ public class RemovePairCmd extends Command {
 			}
 			else {
 				// Display a prompt saying the cards do not match and to press the TurnOverCards Button
+				JOptionPane.showMessageDialog(null,"The selected cards do not match. Press the 'Turn Over Cards' Button.");
 			}
 		}
 	}

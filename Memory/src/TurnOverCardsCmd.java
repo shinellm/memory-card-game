@@ -1,5 +1,5 @@
 
-import java.awt.*;
+import javax.swing.*;
 import java.util.ArrayList;
 
 /**
@@ -31,6 +31,7 @@ public class TurnOverCardsCmd extends Command {
 			}
 			else {
 				//Display a prompt telling the user to remove the selected cards
+				JOptionPane.showMessageDialog(null,"The selected cards match. Press the 'Remove Pair' Button.");
 			}
 		}
 	}
