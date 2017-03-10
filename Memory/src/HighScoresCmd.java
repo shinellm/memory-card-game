@@ -1,6 +1,7 @@
 
-import java.awt.*;
-import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+import highscore.HighScoreManager;
 
 /**
  * TurnOverCardsCmd.java
@@ -19,6 +20,17 @@ public class HighScoresCmd extends Command {
 	 * 
 	 * @param dwg the drawing 
 	 */
-	public void executeClick(Drawing dwg) {	}
+	public void executeClick(Drawing dwg) {	
+	HighScoreManager hm = new HighScoreManager();
 	
+    hm.addScore("Bart",240);
+    hm.addScore("Marge",300);
+    hm.addScore("Maggie",220);
+    hm.addScore("Homer",100);
+    hm.addScore("Lisa",270);
+
+    System.out.print(hm.getHighscoreString("Lisa"));
+ // Display a prompt saying the cards do not match and to press the TurnOverCards Button
+	JOptionPane.showMessageDialog(null,"Game Over... Press the 'Quit' or 'Restart' Button.\n" + hm.getHighscoreString("Lisa"));
+	}	
 }
