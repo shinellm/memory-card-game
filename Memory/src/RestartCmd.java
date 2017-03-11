@@ -25,6 +25,9 @@ public class RestartCmd extends Command {
 			card.setInPlay(true); //Set each card to be in play
 			card.setFaceUp(false); //Set each card to be faced down
 		}
-		dwg.dumpSelectedCards(); // Clear the SelectedCards array in the drawing class
+
+		if (dwg.getSelectedCards().isEmpty() == false) { //Are there two cards already selected?
+			dwg.dumpSelectedCards(); // Clear the SelectedCards array in the drawing class
+		}
 	}
 }
