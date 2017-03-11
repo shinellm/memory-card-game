@@ -10,14 +10,14 @@ import java.util.ArrayList;
 
 public class Drawing {
 	private ArrayList<Card> onTable = new ArrayList<Card>();
-	private ArrayList<Card> selectedCards = new ArrayList<Card>();
-	private int num_removed;
-	private int num_turned;
+	private ArrayList<Card> selectedCards = new ArrayList<Card>();		//A new array to keep track of the current pair
+	private int num_removed;		//These two counting variables track
+	private int num_turned;			//the number of removed pairs, and the total number of attempts at removing
 	private int num_cards;
 	private String userID;
 	private final int CARDS_PER_ROW = 12;
 	private final int NUM_ROWS = 6;
-	private final int CARDS_ON_TABLE = 72;
+	private final int CARDS_ON_TABLE = 72;		//Now 72 cards instead of 81
 
 	public Drawing () {
 		num_turned = 0;
@@ -39,6 +39,8 @@ public class Drawing {
 
 	/**
 	 * Removes a card from the ArrayList at the specified index
+	 * Now sets Card's inPlay instance variable to false, instead
+	 * of actually removing the card from the "table" array
 	 * 
 	 * @param: index the index in the ArrayList at which the 
 	 * card-to-be-removed is located.
@@ -150,6 +152,11 @@ public class Drawing {
 		return selectedCards.size();
 	}
 
+	/**
+	 * Determines whether or not selectedCard's two Cards have
+	 * the same image
+	 * @return true if they do have the same image, false otherwise
+	 */
 	public boolean isAMatch() {
 		return selectedCards.get(0).isEqual(selectedCards.get(1));
 	}
@@ -165,12 +172,11 @@ public class Drawing {
 	
 	/**
 	 * Draws (or redraws) each Card, based on the latest changes 
-	 * per the shapes' attributes/params.
-	 * 
+	 * per the shapes' attributes/params. Different from last project
+	 * only in the specific value of the increments with which each Card's
+	 * coordinates on the canvas are determined.
 	 * @param: page the graphical component upon which everythin
 	 * is to be drawn.
-	 * @param: startX The playing field's upper-left corner's x-coordinate
-	 * @param: startY The playing field's upper-left corner's y-coordinate
 	 */
 	public void draw(Graphics page) {
 		int relative;

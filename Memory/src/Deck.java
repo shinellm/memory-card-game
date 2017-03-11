@@ -1,7 +1,7 @@
 /**
  * Deck.java
  * Represents a Deck of cards for the game
- * of Set
+ * of Memory
  * 
  * @author Rory Bennett
  */
@@ -19,6 +19,7 @@ public class Deck {
 	
 	private int currCardPointer = 0;	//The index of the ArrayList of cards, representing the top card
 										//on the deck.
+	//This is the only aspect of Deck that was modified
 	private Deck() {
 		ArrayList<URL> urls = InternationalLibrary.getUniqueInstance().getURLs();
 		for (int i = 0; i < InternationalLibrary.TOTAL_IMAGES; i++) {

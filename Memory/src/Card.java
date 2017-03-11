@@ -1,6 +1,6 @@
 /**
  * Card.java
- * Represents a single Set card in the deck,
+ * Represents a single Memory card in the deck,
  * attributes and all
  * 
  * @author Rory Bennett
@@ -13,18 +13,21 @@ import javax.imageio.ImageIO;
 
 public class Card{
 	private URL imageLink;
-	private boolean faceUp;
-	private boolean inPlay;
+	private boolean faceUp;		//instance variables that determine three different ways in which
+	private boolean inPlay;		//a card can be drawn.
 
 	private int x;		//The x-coordinate of a Card's upper-left corner
 	private int y;		//The y-coordinate of a Card's upper-left corner
 
+	//No need for so many static instance variables, as in the last project, because the focus is solely on the card's
+	//image
 	public static final int WIDTH = 65;
 	public static final int HEIGHT = 85;
 	
 	public static final int IMAGE_WIDTH = 55;
 	public static final int IMAGE_HEIGHT = 75;
 
+	//Now the Card only takes an image URL as a parameter
 	public Card(URL url) {
 		imageLink = url;
 		faceUp = false;
@@ -32,12 +35,12 @@ public class Card{
 	}
 
 	/**
-	 * Draws a white rectangle, given the x- and y-coordinate
+	 * Draws a rectangle, given the x- and y-coordinate
 	 * parameters, and the set width and height instance variables.
 	 * Then uses its other instance variables, determined at the 
 	 * instantiation of the Deck object in which it is held, to 
-	 * draw the shapes, the coordinates of which will be based
-	 * off of this Card's own coordinates.
+	 * decide whether to draw the image, or draw the back of the card
+	 * or draw the card so that it is now invisible
 	 * 
 	 * @param: page the page on which this Card is to be drawn
 	 * @param: x_coor the x-coordinate of this Card
@@ -59,7 +62,7 @@ public class Card{
 		} else {
 			BufferedImage image;
 			try {
-				image = ImageIO.read(imageLink);
+				image = ImageIO.read(imageLink);	//In case the URL is misspelled or corrupted
 				page.drawImage(image, x + ((WIDTH - IMAGE_WIDTH) / 2), y + ((HEIGHT - IMAGE_HEIGHT) / 2),
 						IMAGE_WIDTH, IMAGE_HEIGHT, page.getColor(), null);
 			} catch (IOException e) {
@@ -86,7 +89,8 @@ public class Card{
 	public int getY() {
 		return y;
 	}
-	
+
+	//New getters and setters corresponding to the new instance variables
 	public boolean getFaceUp() {
 		return faceUp;
 	}
