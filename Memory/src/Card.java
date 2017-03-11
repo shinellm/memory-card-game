@@ -118,4 +118,14 @@ public class Card{
 	public boolean isEqual(Card card) {
 		return imageLink.equals(card.getURL());
 	}
+
+	/**
+	 * Determines whether or not two Cards have different locations
+	 *
+	 * @param card the card to which this is being compared
+	 * @return true card shares a different location, false otherwise
+	 */
+	public boolean locatedElsewhere(Card card) {
+		return (x != card.getX() || y != card.getY());
+	}
 }
