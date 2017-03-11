@@ -119,7 +119,6 @@ public class HighScoreManager {
 
 		for (int i = 0; i < scores.size(); i++) {
 				if ((display < max) && (name.equals(scores.get(i).getNaam()))) {
-					System.out.println(scores.get(i).getNaam());
 					highscoreString += (display + 1) + ".\t" + scores.get(i).getNaam() + "\t\t" + scores.get(i).getScore() + "\n";
 					display++;
 				}
