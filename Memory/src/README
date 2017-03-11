@@ -1,1 +1,36 @@
-The program should be run from the homePage class.
+New Classes:
+	-highscore package
+		-HighScoreComparator.java
+		-HighScoreManager.java
+		-Score.java
+	-images package
+		-ImageLibrary.java
+		-InternationalLibrary.java
+	-SelectTwoCardsCmd.java
+	-TurnOverCardsCmd.java
+	-RemovePairCmd.java
+	-HighScoresCmd.java
+	-QuitCmd.java
+
+Edited Classes (see comments in code for exact changes):
+	-Mode.java
+	-Solitaire.java
+	-HomePage.java
+	-Command.java
+	-RestartCmd.java
+	-Card.java
+	-Deck.java
+	-Drawing.java
+
+Deleted Classes:
+	-Tutorial.java
+	-AddThreeCmd.java
+	-BackwardCmd.java
+	-ForwardCmd.java
+	-HintCmd.java
+	-NewTwelveCardsCmd.java
+	-SelectThreeCardsCmd.java
+	-Shape.java
+	-Ellipse.java
+	-Rect.java
+	-Triangle.java
