@@ -12,6 +12,7 @@ import highscore.HighScoreManager;
  */
 
 public class HighScoresCmd extends Command {
+	private int score;
 	
 	/**
 	 * When the user completes the game, add the user's current score to their
@@ -22,15 +23,16 @@ public class HighScoresCmd extends Command {
 	 */
 	public void executeClick(Drawing dwg) {	
 	HighScoreManager hm = new HighScoreManager();
+	if ((dwg.getNumTurned()) == 0) {
+		score = 0;
+	}
+	else{
+		score = ((dwg.getNumRemoved())/(dwg.getNumTurned()))*100;
+	}
 	
-    hm.addScore("Bart",240);
-    hm.addScore("Marge",300);
-    hm.addScore("Maggie",220);
-    hm.addScore("Homer",100);
-    hm.addScore("Lisa",270);
-
-    System.out.print(hm.getHighscoreString("Lisa"));
+    hm.addScore(dwg.getUserID(),score);
+    
     // Display the top 10 score for the specified player and display a prompt saying the game has ended and to press the Quit or Restart Button
-	JOptionPane.showMessageDialog(null,"Game Over... Press the 'Quit' or 'Restart' Button.\n" + hm.getHighscoreString("Lisa"));
+	JOptionPane.showMessageDialog(null,"Game Over... Press the 'Quit' or 'Restart' Button.\n" + hm.getHighscoreString(dwg.getUserID()));
 	}	
 }

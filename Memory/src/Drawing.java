@@ -14,6 +14,7 @@ public class Drawing {
 	private int num_removed;
 	private int num_turned;
 	private int num_cards;
+	private String userID;
 	private final int CARDS_PER_ROW = 12;
 	private final int NUM_ROWS = 6;
 	private final int CARDS_ON_TABLE = 72;
@@ -153,6 +154,15 @@ public class Drawing {
 		return selectedCards.get(0).isEqual(selectedCards.get(1));
 	}
 
+	//getter and setter methods for the player's userID
+	public String getUserID() {
+		return userID;
+	}
+	
+	public void setUserID(String id) {
+		userID = id;
+	}
+	
 	/**
 	 * Draws (or redraws) each Card, based on the latest changes 
 	 * per the shapes' attributes/params.

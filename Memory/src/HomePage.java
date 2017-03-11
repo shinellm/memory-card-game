@@ -70,7 +70,7 @@ public class HomePage extends JApplet {
 			if(userId.length()>3){
 				userId=userId.substring(0, 3);
 			}
-			System.out.println(userId);
+			dwg.setUserID(userId);
 			JButton button = (JButton)event.getSource();
 			JPanel panel = (JPanel)button.getParent();
 			panel.remove(0);
