@@ -28,25 +28,29 @@ public class SelectTwoCardsCmd extends Command {
 	public void selectPair(Drawing dwg, Point p) {
 		if (dwg.getSelectedCards().isEmpty()) { //Are there two cards already selected?
 
-			int i = dwg.searchTable(p); // Find the index of the card containing p.
-			Card c = dwg.getCard(i); // Find the card at index i.
-			Deck deck = Deck.getUniqueInstance();
+			if (dwg.searchTable(p) != -1){
+				int i = dwg.searchTable(p); // Find the index of the card containing p.
+				Card c = dwg.getCard(i); // Find the card at index i.
+				Deck deck = Deck.getUniqueInstance();
 
-			if (c != null) { // Was there a Card containing p?
-				if (twoCards.isEmpty()) {
-					twoCards.add(c); // Save this card for when there's another click
-					c.setFaceUp(true); // Turn the selected card so that it is face up
-				}
-				else {
-					twoCards.add(c);
-					c.setFaceUp(true); // Turn the selected card so that it is face up
-
-					// We have two cards in our ArrayList.
-					for (int j = 0; j < 2; j++) {
-						dwg.addToSelectArray(twoCards.get(j), j);
+				if (c != null) { // Was there a Card containing p?
+					if (twoCards.isEmpty()) {
+						twoCards.add(c); // Save this card for when there's another click
+						c.setFaceUp(true); // Turn the selected card so that it is face up
 					}
-					dwg.incrementNumTurned(); // Increment the score for number of pairs selected
-					twoCards.clear(); // Now we clear the ArrayList and can select 2 more cards.
+					else {
+						if (twoCards.get(0).locatedElsewhere(c)) {
+							twoCards.add(c);
+							c.setFaceUp(true); // Turn the selected card so that it is face up
+
+							// We have two cards in our ArrayList.
+							for (int j = 0; j < 2; j++) {
+								dwg.addToSelectArray(twoCards.get(j), j);
+							}
+							dwg.incrementNumTurned(); // Increment the score for number of pairs selected
+							twoCards.clear(); // Now we clear the ArrayList and can select 2 more cards.
+						}					
+					}
 				}
 			}
 		}
