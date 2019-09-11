@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 /**
- * TurnOverCardsCmd.java
+ * RemovePairCmd.java
  * Command class to perform a remove cards command.
  * 
  * @author Shinell Manwaring

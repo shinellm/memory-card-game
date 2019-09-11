@@ -2,7 +2,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-
+import java.util.ArrayList;
 
 public class Solitaire extends Mode {
 	private static final long serialVersionUID = 1L;
@@ -78,6 +78,19 @@ public class Solitaire extends Mode {
 		public void actionPerformed(ActionEvent event) {
 			cmd = new RemovePairCmd();
 			cmd.executeClick(d);
+			ArrayList<Card> onTable = d.getTable();
+			boolean gameNotOver = false;
+			int ca = 0;
+			for (int i = 0; i < onTable.size(); i++) {
+				gameNotOver = onTable.get(i).getInPlay();
+				if (gameNotOver == true) {
+					ca++;
+				}
+			}
+			if (ca == 0) {
+				cmd = new HighScoresCmd();
+				cmd.executeClick(d);
+			}
 			c.repaint();
 		}
 	}

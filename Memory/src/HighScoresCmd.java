@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 import highscore.HighScoreManager;
 
 /**
- * TurnOverCardsCmd.java
+ * HighScoresCmd.java
  * Command class to add and retrieve the high scores for the current user.
  * 
  * @author Shinell Manwaring
@@ -27,7 +27,7 @@ public class HighScoresCmd extends Command {
 		score = 0;
 	}
 	else{
-		score = ((dwg.getNumRemoved())/(dwg.getNumTurned()))*100;
+		score = ((dwg.getNumRemoved())*100/(dwg.getNumTurned()))*100;
 	}
 	
     hm.addScore(dwg.getUserID(),score);
