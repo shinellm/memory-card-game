@@ -1,6 +1,8 @@
 # memory-card-game
 Using the system from Project 2 (set-gard-game) as a starting point, create a new applet that plays Memory.
 
+![](CSC-Project-3.gif)
+
 Memory is normally played as follows:
 
 1. There are 72 playing cards. They all have the same back and have a picture on the front. There are 2 cards 
