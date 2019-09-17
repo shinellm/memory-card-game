@@ -15,7 +15,7 @@ An applet that lets users play memory. Just type in a 3 character user ID and tr
 
 1.  Clone the repo:
 
-        git clone https://github.com/shinellmanwaring/memory-card-game.git
+        git clone https://github.com/shinellm/memory-card-game.git
 
 2.  Open the project from your preferred Java editor.
 
